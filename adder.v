@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02.09.2023 16:59:26
+// Create Date: 04.09.2023 20:05:55
 // Design Name: 
-// Module Name: reg_32_bit
+// Module Name: adder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,19 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module reg_32_bit(
-    input clk, rst, en,
-    input [31:0] in,
-    output reg [31:0] out
+module adder(
+    input [31:0] a, b,
+    output [31:0] y
     );
     
-    always @(posedge clk) begin
-        if(rst)
-            out <= 0;
-        else begin
-            if(en)
-                out <= in;
-        end
-    end
+    assign y = a+b;
     
 endmodule

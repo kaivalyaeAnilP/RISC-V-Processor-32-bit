@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02.09.2023 16:59:26
+// Create Date: 02.09.2023 20:31:59
 // Design Name: 
-// Module Name: reg_32_bit
+// Module Name: mux3_1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,19 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module reg_32_bit(
-    input clk, rst, en,
-    input [31:0] in,
-    output reg [31:0] out
+module mux3_1(
+    input i0, i1, i2,
+    input [1:0] sel,
+    output reg out
     );
     
-    always @(posedge clk) begin
-        if(rst)
-            out <= 0;
-        else begin
-            if(en)
-                out <= in;
-        end
+    always @(*) begin
+        case(sel) 
+            2'b00: out = i0;
+            2'b01: out = i1;
+            2'b10: out = i2;
+            default: out = 0;
+        endcase
     end
     
 endmodule
